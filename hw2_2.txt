@@ -1,0 +1,16 @@
+create table if not exists Chiefs (
+	id serial primary key,
+	name varchar(90) not null unique
+);
+
+create table if not exists Departments (
+	id serial primary key,
+	name varchar(120) not null unique
+);
+
+create table if not exists Staff (
+	id serial primary key,
+	name varchar(90) not null,
+	department_id integer references Departments(id),
+	chief_id integer references Chiefs(id)
+);
